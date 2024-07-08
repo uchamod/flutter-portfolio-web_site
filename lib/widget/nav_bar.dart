@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portflio/data/navitems_data.dart';
 import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/text_styles.dart';
+import 'package:portflio/widget/logo.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -28,24 +30,11 @@ class _NavBarState extends State<NavBar> {
       child: Row(
         children: [
           //logo
-          Container(
-            height: 50,
-            width: 50,
-            padding: const EdgeInsets.all(8),
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-               
-                color: AppColors.kcExtratextOrangeColor),
-            child: Center(
-              child: Text(
-                "CU",
-                style: TextStyleClass.kcTitleText
-                    .copyWith(fontWeight: FontWeight.w800, fontSize: 24),
-              ),
-            ),
+          MyLoGo(
+            onTap: () {},
           ),
-           SizedBox(
-            width: MediaQuery.of(context).size.width*0.5,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
           ),
           //navbar links
           Expanded(
@@ -53,40 +42,13 @@ class _NavBarState extends State<NavBar> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 //home section
-                TextButton(
-                  onPressed: () {},
-                  child: Text("Home",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyleClass.kcLableText)),
-                ),
-                //skill secction
-                TextButton(
-                  onPressed: () {},
-                  child: Text("Skills",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyleClass.kcLableText)),
-                ),
-                //project section
-                TextButton(
-                  onPressed: () {},
-                  child: Text("Projects",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyleClass.kcLableText)),
-                ),
-                //contact section
-                TextButton(
-                  onPressed: () {},
-                  child: Text("Contact me",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyleClass.kcLableText)),
-                ),
-                //link for blog page
-                TextButton(
-                  onPressed: () {},
-                  child: Text("Blog",
-                      style: GoogleFonts.openSans(
-                          textStyle: TextStyleClass.kcLableText)),
-                ),
+                for (int i = 0; i < NavitemsData.navItems.length; i++)
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(NavitemsData.navItems[i],
+                        style: GoogleFonts.openSans(
+                            textStyle: TextStyleClass.kcLableText)),
+                  ),
               ],
             ),
           ),
