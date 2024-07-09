@@ -3,35 +3,45 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/text_styles.dart';
 
-class IntroSection extends StatefulWidget {
-  const IntroSection({super.key});
+class MobileIntroSection extends StatefulWidget {
+  const MobileIntroSection({super.key});
 
   @override
-  State<IntroSection> createState() => _IntroSectionState();
+  State<MobileIntroSection> createState() => _MobileIntroSectionState();
 }
 
-class _IntroSectionState extends State<IntroSection> {
+class _MobileIntroSectionState extends State<MobileIntroSection> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      child:
-          //me section
-          Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          //intro section
-          Column(
+             //my image
+          Container(
+            width: MediaQuery.of(context).size.width*0.275,
+            height: MediaQuery.of(context).size.width*0.275,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                  image: AssetImage("avatar.jpg"), fit: BoxFit.cover),
+            ),
+          
+          ),
+
+           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //name
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "I'M",
                     style: GoogleFonts.bebasNeue(
-                        textStyle: TextStyleClass.kcTitleText),
+                        textStyle: TextStyleClass.kcTitleText.copyWith(fontSize:20 )),
                   ),
                   const SizedBox(
                     width: 10,
@@ -39,16 +49,21 @@ class _IntroSectionState extends State<IntroSection> {
                   Text(
                     "Chamod Udara",
                     style: GoogleFonts.roboto(
-                        textStyle: TextStyleClass.kcDisplaytext),
+                        textStyle: TextStyleClass.kcDisplaytext.copyWith(fontSize:44)),
                   ),
                 ],
               ),
               //position
-              Text(
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                     Text(
                 "Flutter Developer & UI \nDesigner",
                 style: GoogleFonts.roboto(
                   textStyle: TextStyleClass.kcTitleText.copyWith(
                     color: AppColors.kcTextWhiteColorShadow.withOpacity(0.65),
+                    fontSize:20 ,
                   ),
                 ),
               ),
@@ -70,24 +85,18 @@ class _IntroSectionState extends State<IntroSection> {
                     style: GoogleFonts.roboto(
                       textStyle: TextStyleClass.kcLableSpecialText.copyWith(
                         fontWeight: FontWeight.w700,
+                         fontSize:16 ,
                       ),
                     ),
                   ),
                 ),
               ),
+                ],
+              ),
+             
             ],
           ),
-          //my image
-          Container(
-            width: MediaQuery.of(context).size.width*0.275,
-            height: MediaQuery.of(context).size.width*0.275,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage("avatar.jpg"), fit: BoxFit.cover),
-            ),
-          
-          ),
+
         ],
       ),
     );
