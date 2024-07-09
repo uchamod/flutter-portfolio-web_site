@@ -3,7 +3,9 @@ import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/constant.dart';
 import 'package:portflio/widget/aboutme_section.dart';
 import 'package:portflio/widget/intro_section.dart';
+import 'package:portflio/widget/mobile_aboutme_section.dart';
 import 'package:portflio/widget/mobile_enddrawer.dart';
+import 'package:portflio/widget/mobile_intro_section.dart';
 import 'package:portflio/widget/nav_bar.dart';
 import 'package:portflio/widget/nav_bar_formobile.dart';
 
@@ -19,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   final ScaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    //add layout constranits
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: ScaffoldKey,
@@ -32,11 +35,12 @@ class _HomePageState extends State<HomePage> {
           children: [
             //home section
             Container(
-              height: 720,
+             
               width: double.maxFinite,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //navigation bar
                   if (constraints.maxWidth >= mobileEdgeWidth)
                     const NavBar()
                   else
@@ -47,8 +51,17 @@ class _HomePageState extends State<HomePage> {
                         ScaffoldKey.currentState?.openEndDrawer();
                       },
                     ),
-                  const IntroSection(),
-                  const AboutmeSection()
+                  //intro section
+                  if (constraints.maxWidth >= mobileEdgeWidth)
+                    const IntroSection()
+                  else
+                    const MobileIntroSection(),
+                 
+                  //about me section
+                  if (constraints.maxWidth >= mobileEdgeWidth)
+                    const AboutmeSection()
+                  else
+                    const MobileAboutMe(),
                 ],
               ),
             ),
