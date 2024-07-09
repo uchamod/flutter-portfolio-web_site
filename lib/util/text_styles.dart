@@ -19,9 +19,9 @@ class TextStyleClass {
       fontWeight: FontWeight.w600);
   //discrption large
   static const kcBodyText = TextStyle(
-      fontSize: 20,
+      fontSize: 16,
       color: AppColors.kcTextWhiteColorShadow,
-      fontWeight: FontWeight.w500);
+      fontWeight: FontWeight.w400);
   //discription small
   static const kcLableText = TextStyle(
       fontSize: 16,

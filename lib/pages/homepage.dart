@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portflio/util/colors.dart';
+import 'package:portflio/util/constant.dart';
+import 'package:portflio/widget/aboutme_section.dart';
+import 'package:portflio/widget/intro_section.dart';
 import 'package:portflio/widget/mobile_enddrawer.dart';
 import 'package:portflio/widget/nav_bar.dart';
 import 'package:portflio/widget/nav_bar_formobile.dart';
@@ -20,19 +23,21 @@ class _HomePageState extends State<HomePage> {
       return Scaffold(
         key: ScaffoldKey,
         //set up enddrawer
-        endDrawer:
-            constraints.maxWidth >= 850 ? null : const MobileEndDreaewr(),
+        endDrawer: constraints.maxWidth >= mobileEdgeWidth
+            ? null
+            : const MobileEndDreaewr(),
         backgroundColor: AppColors.kcBackgroundBlackColor,
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
             //home section
             Container(
-              height: 500,
+              height: 720,
               width: double.maxFinite,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  if (constraints.maxWidth >= 850)
+                  if (constraints.maxWidth >= mobileEdgeWidth)
                     const NavBar()
                   else
                     MobileNavBar(
@@ -41,7 +46,9 @@ class _HomePageState extends State<HomePage> {
                       onMenuBarTap: () {
                         ScaffoldKey.currentState?.openEndDrawer();
                       },
-                    )
+                    ),
+                  const IntroSection(),
+                  const AboutmeSection()
                 ],
               ),
             ),
@@ -49,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 500,
               width: double.maxFinite,
-              color: Colors.blue,
+              color: AppColors.kcBackgroundBlackColor,
             ),
             //project section
             Container(
