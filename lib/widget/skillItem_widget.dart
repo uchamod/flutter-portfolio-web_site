@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portflio/util/colors.dart';
+import 'package:portflio/util/constant.dart';
 import 'package:portflio/util/text_styles.dart';
 
 class SkillItem extends StatelessWidget {
@@ -9,9 +10,10 @@ class SkillItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     double screenWidth=MediaQuery.of(context).size.width*1;
     return Container(
-      width: MediaQuery.of(context).size.width*0.15,
-      height: MediaQuery.of(context).size.width*0.15,
+      width:screenWidth > mobileEdgeWidth ? MediaQuery.of(context).size.width*0.15 : MediaQuery.of(context).size.width*0.3,
+      height: screenWidth > mobileEdgeWidth ? MediaQuery.of(context).size.width*0.15 : MediaQuery.of(context).size.width*0.3,
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.transparent.withOpacity(0.1),
