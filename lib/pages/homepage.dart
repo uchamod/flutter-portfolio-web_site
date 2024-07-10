@@ -73,7 +73,6 @@ class _HomePageState extends State<HomePage> {
             //skill section
             Container(
               width: double.maxFinite,
-              
               color: AppColors.kcCardBlackColor.withOpacity(0.5),
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               child: Column(
@@ -87,48 +86,100 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.roboto(
                         textStyle: TextStyleClass.kcTitleText),
                   ),
-                   const SizedBox(height: 10,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (int i = 0; i < MainSkillsData.mainSkills.length; i++)
-                        MainSkills(
-                            icon: MainSkillsData.mainSkills[i].icon,
-                            title: MainSkillsData.mainSkills[i].title),
-                    ],
+                  const SizedBox(
+                    height: 10,
                   ),
-                   
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (int i = 0; i < SkillData.skills.length / 2; i++)
-                        SkillItem(
-                            name: SkillData.skills[i].skillName,
-                            imag: SkillData.skills[i].skillIcon)
-                    ],
-                  ),
-                
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (int i = 3;
-                          i < SkillData.skills.length;
-                          i++)
-                        SkillItem(
-                            name: SkillData.skills[i].skillName,
-                            imag: SkillData.skills[i].skillIcon)
-                    ],
-                  ),
+                  if (constraints.maxWidth >= mobileEdgeWidth)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (int i = 0;
+                            i < MainSkillsData.mainSkills.length;
+                            i++)
+                          MainSkills(
+                              icon: MainSkillsData.mainSkills[i].icon,
+                              title: MainSkillsData.mainSkills[i].title),
+                      ],
+                    )
+                  else
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (int i = 0;
+                            i < MainSkillsData.mainSkills.length;
+                            i++)
+                          MainSkills(
+                              icon: MainSkillsData.mainSkills[i].icon,
+                              title: MainSkillsData.mainSkills[i].title),
+                      ],
+                    ),
+                  if (constraints.maxWidth >= mobileEdgeWidth)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0;
+                                i < SkillData.skills.length / 2;
+                                i++)
+                              SkillItem(
+                                  name: SkillData.skills[i].skillName,
+                                  imag: SkillData.skills[i].skillIcon)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 3; i < SkillData.skills.length; i++)
+                              SkillItem(
+                                  name: SkillData.skills[i].skillName,
+                                  imag: SkillData.skills[i].skillIcon)
+                          ],
+                        )
+                      ],
+                    )
+                  else
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0; i < SkillData.skills.length/3; i++)
+                              SkillItem(
+                                  name: SkillData.skills[i].skillName,
+                                  imag: SkillData.skills[i].skillIcon)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 2; i < SkillData.skills.length-2; i++)
+                              SkillItem(
+                                  name: SkillData.skills[i].skillName,
+                                  imag: SkillData.skills[i].skillIcon)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 4; i < SkillData.skills.length; i++)
+                              SkillItem(
+                                  name: SkillData.skills[i].skillName,
+                                  imag: SkillData.skills[i].skillIcon)
+                          ],
+                        ),
+                      ],
+                    )
                 ],
               ),
             ),
 
             //project section
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.green,
-            ),
+            // Container(
+            //   height: 500,
+            //   width: double.maxFinite,
+            //   color: Colors.green,
+            // ),
             //contact section
             Container(
               height: 500,
