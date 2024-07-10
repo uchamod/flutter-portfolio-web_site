@@ -73,10 +73,10 @@ class _HomePageState extends State<HomePage> {
             //skill section
             Container(
               width: double.maxFinite,
-              
               color: AppColors.kcCardBlackColor.withOpacity(0.5),
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   const SizedBox(
@@ -87,17 +87,29 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.roboto(
                         textStyle: TextStyleClass.kcTitleText),
                   ),
-                   const SizedBox(height: 10,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (int i = 0; i < MainSkillsData.mainSkills.length; i++)
-                        MainSkills(
-                            icon: MainSkillsData.mainSkills[i].icon,
-                            title: MainSkillsData.mainSkills[i].title),
-                    ],
+                  const SizedBox(
+                    height: 10,
                   ),
-                   
+                  Flexible(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth: MediaQuery.of(context).size.width * 0.6,
+                      ),
+                      child: Expanded(
+                        child: Wrap(
+                           
+                          children: [
+                            for (int i = 0;
+                                i < MainSkillsData.mainSkills.length;
+                                i++)
+                              MainSkills(
+                                  icon: MainSkillsData.mainSkills[i].icon,
+                                  title: MainSkillsData.mainSkills[i].title),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -107,13 +119,10 @@ class _HomePageState extends State<HomePage> {
                             imag: SkillData.skills[i].skillIcon)
                     ],
                   ),
-                
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      for (int i = 3;
-                          i < SkillData.skills.length;
-                          i++)
+                      for (int i = 3; i < SkillData.skills.length; i++)
                         SkillItem(
                             name: SkillData.skills[i].skillName,
                             imag: SkillData.skills[i].skillIcon)

@@ -11,8 +11,8 @@ class MainSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.1,
-      margin: EdgeInsets.all(30),
+     // width: MediaQuery.of(context).size.width * 0.1,
+      //margin: const EdgeInsets.all(30),
       decoration: BoxDecoration(
           color: AppColors.kcCardBlackColor.withOpacity(0.5),
           boxShadow: const [
@@ -33,8 +33,8 @@ class MainSkills extends StatelessWidget {
               ),
               Text(
                 title,
-                style: GoogleFonts.roboto(
-                    textStyle: TextStyleClass.kcBodyText),
+                style:
+                    GoogleFonts.roboto(textStyle: TextStyleClass.kcBodyText),
               )
             ],
           )),
