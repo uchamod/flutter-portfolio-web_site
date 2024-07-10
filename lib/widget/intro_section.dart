@@ -81,9 +81,10 @@ class _IntroSectionState extends State<IntroSection> {
           Container(
             width: MediaQuery.of(context).size.width*0.275,
             height: MediaQuery.of(context).size.width*0.275,
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
+              border: Border.all(color: AppColors.kcExtratextOrangeColor,width: 2),
               shape: BoxShape.circle,
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage("avatar.jpg"), fit: BoxFit.cover),
             ),
           

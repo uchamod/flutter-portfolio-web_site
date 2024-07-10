@@ -18,19 +18,30 @@ class _MobileIntroSectionState extends State<MobileIntroSection> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-             //my image
-          Container(
-            width: MediaQuery.of(context).size.width*0.275,
-            height: MediaQuery.of(context).size.width*0.275,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage("avatar.jpg"), fit: BoxFit.cover),
+          //my image
+          ShaderMask(
+
+            blendMode: BlendMode.dst,
+            shaderCallback: (bounds) {
+              return LinearGradient(colors: [
+                 Colors.grey.shade100,
+                Colors.grey.shade800
+              ]).createShader(bounds);
+              
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.275,
+              height: MediaQuery.of(context).size.width * 0.275,
+              decoration:  BoxDecoration(
+                border: Border.all(color: AppColors.kcExtratextOrangeColor,width: 2),
+                shape: BoxShape.circle,
+                image: const DecorationImage(
+                    image: AssetImage("avatar.jpg"), fit: BoxFit.cover),
+              ),
             ),
-          
           ),
 
-           Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -41,7 +52,8 @@ class _MobileIntroSectionState extends State<MobileIntroSection> {
                   Text(
                     "I'M",
                     style: GoogleFonts.bebasNeue(
-                        textStyle: TextStyleClass.kcTitleText.copyWith(fontSize:20 )),
+                        textStyle:
+                            TextStyleClass.kcTitleText.copyWith(fontSize: 20)),
                   ),
                   const SizedBox(
                     width: 10,
@@ -49,7 +61,8 @@ class _MobileIntroSectionState extends State<MobileIntroSection> {
                   Text(
                     "Chamod Udara",
                     style: GoogleFonts.roboto(
-                        textStyle: TextStyleClass.kcDisplaytext.copyWith(fontSize:44)),
+                        textStyle: TextStyleClass.kcDisplaytext
+                            .copyWith(fontSize: 44)),
                   ),
                 ],
               ),
@@ -58,45 +71,43 @@ class _MobileIntroSectionState extends State<MobileIntroSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                     Text(
-                "Flutter Developer & UI \nDesigner",
-                style: GoogleFonts.roboto(
-                  textStyle: TextStyleClass.kcTitleText.copyWith(
-                    color: AppColors.kcTextWhiteColorShadow.withOpacity(0.65),
-                    fontSize:20 ,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              //contact button
-              GestureDetector(
-                onTap: () {
-                  
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          color: AppColors.kcExtratextOrangeColor, width: 2)),
-                  child: Text(
-                    "Contact Me",
+                  Text(
+                    "Flutter Developer & UI \nDesigner",
                     style: GoogleFonts.roboto(
-                      textStyle: TextStyleClass.kcLableSpecialText.copyWith(
-                        fontWeight: FontWeight.w700,
-                         fontSize:16 ,
+                      textStyle: TextStyleClass.kcTitleText.copyWith(
+                        color:
+                            AppColors.kcTextWhiteColorShadow.withOpacity(0.65),
+                        fontSize: 20,
                       ),
                     ),
                   ),
-                ),
-              ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  //contact button
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: AppColors.kcExtratextOrangeColor,
+                              width: 2)),
+                      child: Text(
+                        "Contact Me",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyleClass.kcLableSpecialText.copyWith(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-             
             ],
           ),
-
         ],
       ),
     );

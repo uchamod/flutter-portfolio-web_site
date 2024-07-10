@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portflio/data/main_skills_data.dart';
+import 'package:portflio/data/skill_data.dart';
 import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/constant.dart';
+import 'package:portflio/util/text_styles.dart';
 import 'package:portflio/widget/aboutme_section.dart';
 import 'package:portflio/widget/intro_section.dart';
+import 'package:portflio/widget/main_skills.dart';
 import 'package:portflio/widget/mobile_aboutme_section.dart';
 import 'package:portflio/widget/mobile_enddrawer.dart';
 import 'package:portflio/widget/mobile_intro_section.dart';
 import 'package:portflio/widget/nav_bar.dart';
 import 'package:portflio/widget/nav_bar_formobile.dart';
+import 'package:portflio/widget/skillItem_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,7 +41,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             //home section
             Container(
-             
               width: double.maxFinite,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     const IntroSection()
                   else
                     const MobileIntroSection(),
-                 
+
                   //about me section
                   if (constraints.maxWidth >= mobileEdgeWidth)
                     const AboutmeSection()
@@ -67,10 +72,57 @@ class _HomePageState extends State<HomePage> {
             ),
             //skill section
             Container(
-              height: 500,
               width: double.maxFinite,
-              color: AppColors.kcBackgroundBlackColor,
+              
+              color: AppColors.kcCardBlackColor.withOpacity(0.5),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    "My Skills",
+                    style: GoogleFonts.roboto(
+                        textStyle: TextStyleClass.kcTitleText),
+                  ),
+                   const SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (int i = 0; i < MainSkillsData.mainSkills.length; i++)
+                        MainSkills(
+                            icon: MainSkillsData.mainSkills[i].icon,
+                            title: MainSkillsData.mainSkills[i].title),
+                    ],
+                  ),
+                   
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (int i = 0; i < SkillData.skills.length / 2; i++)
+                        SkillItem(
+                            name: SkillData.skills[i].skillName,
+                            imag: SkillData.skills[i].skillIcon)
+                    ],
+                  ),
+                
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (int i = 3;
+                          i < SkillData.skills.length;
+                          i++)
+                        SkillItem(
+                            name: SkillData.skills[i].skillName,
+                            imag: SkillData.skills[i].skillIcon)
+                    ],
+                  ),
+                ],
+              ),
             ),
+
             //project section
             Container(
               height: 500,
