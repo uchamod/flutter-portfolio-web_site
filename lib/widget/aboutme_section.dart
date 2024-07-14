@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/text_styles.dart';
@@ -14,9 +15,15 @@ class AboutmeSection extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.center,
-            child: Text(
-              "About Me",
-              style: GoogleFonts.roboto(textStyle: TextStyleClass.kcTitleText),
+            child: AnimatedDefaultTextStyle(
+              style: TextStyleClass.kcLableSpecialText,
+              duration: const Duration(seconds: 5),
+              curve: Curves.easeInOut,
+              child: Text(
+                "About Me",
+                style:
+                    GoogleFonts.roboto(textStyle: TextStyleClass.kcTitleText),
+              ),
             ),
           ),
           const Divider(
@@ -32,7 +39,7 @@ class AboutmeSection extends StatelessWidget {
               color: AppColors.kcTextWhiteColorShadow.withOpacity(0.65),
             )),
           )
-        ],
+        ].animate(interval: 500.ms).fadeIn(duration: 1000.ms),
       ),
     );
   }

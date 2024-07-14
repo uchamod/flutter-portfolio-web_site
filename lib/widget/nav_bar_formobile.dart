@@ -3,8 +3,9 @@ import 'package:portflio/util/colors.dart';
 import 'package:portflio/widget/logo.dart';
 
 class MobileNavBar extends StatelessWidget {
+ 
   const MobileNavBar(
-      {super.key, required this.onTap, required this.onMenuBarTap});
+      {super.key, required this.onTap, required this.onMenuBarTap, });
   final VoidCallback onTap;
   final VoidCallback onMenuBarTap;
   @override

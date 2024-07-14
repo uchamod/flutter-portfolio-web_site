@@ -5,7 +5,8 @@ import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/text_styles.dart';
 
 class MobileEndDreaewr extends StatefulWidget {
-  const MobileEndDreaewr({super.key});
+  final Function(int) onItemTap;
+  const MobileEndDreaewr({super.key, required this.onItemTap});
 
   @override
   State<MobileEndDreaewr> createState() => _MobileEndDreaewrState();
@@ -49,7 +50,9 @@ class _MobileEndDreaewrState extends State<MobileEndDreaewr> {
                 style:
                     GoogleFonts.openSans(textStyle: TextStyleClass.kcLableText),
               ),
-              onTap: () {},
+              onTap: () {
+                widget.onItemTap(i);
+              },
             )
         ],
       ),

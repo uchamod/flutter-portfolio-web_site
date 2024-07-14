@@ -16,7 +16,7 @@ class NavitemsData {
       itemIcon: const Icon(Icons.adb),
     ),
     NavBarItemModel(
-      itemName: "Contact",
+      itemName: "Contact me",
       itemIcon: const Icon(Icons.contact_page_rounded),
     ),
     NavBarItemModel(

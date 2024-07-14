@@ -10,25 +10,33 @@ class SkillItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     double screenWidth=MediaQuery.of(context).size.width*1;
+    double screenWidth = MediaQuery.of(context).size.width * 1;
+   
     return Container(
-      width:screenWidth > mobileEdgeWidth ? MediaQuery.of(context).size.width*0.15 : MediaQuery.of(context).size.width*0.3,
-      height: screenWidth > mobileEdgeWidth ? MediaQuery.of(context).size.width*0.15 : MediaQuery.of(context).size.width*0.3,
+      width: screenWidth > mobileEdgeWidth
+          ? MediaQuery.of(context).size.width * 0.15
+          : MediaQuery.of(context).size.width * 0.3,
+      height: screenWidth > mobileEdgeWidth
+          ? MediaQuery.of(context).size.width * 0.15
+          : MediaQuery.of(context).size.width * 0.3,
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.transparent.withOpacity(0.1),
         borderRadius: BorderRadius.circular(25),
-        boxShadow:  const [
+        boxShadow: const [
           BoxShadow(
-              offset: Offset(2, 2),
-              color: AppColors.kcCardBlackColor,
-              ),
+            offset: Offset(2, 2),
+            color: AppColors.kcCardBlackColor,
+          ),
         ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset(imag,width: 100,),
+          Image.asset(
+            imag,
+            width: 100,
+          ),
           Text(
             name,
             style: TextStyleClass.kcBodyText,

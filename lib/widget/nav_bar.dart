@@ -6,7 +6,11 @@ import 'package:portflio/util/text_styles.dart';
 import 'package:portflio/widget/logo.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final Function(int) onItemTap;
+  const NavBar({
+    super.key,
+    required this.onItemTap,
+  });
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -44,10 +48,12 @@ class _NavBarState extends State<NavBar> {
                 //home section
                 for (int i = 0; i < NavitemsData.navItems.length; i++)
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      widget.onItemTap(i);
+                    },
                     child: Text(NavitemsData.navItems[i],
                         style: GoogleFonts.openSans(
-                            textStyle: TextStyleClass.kcLableText)),
+                            textStyle: TextStyleClass.kcBodyText)),
                   ),
               ],
             ),
