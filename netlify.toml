@@ -1,5 +1,5 @@
 [build]
-  command = "bash install-flutter.sh && flutter build web"
+  command = "bash install-flutter.sh && flutter build web --verbose"
   publish = "build/web"
 
 [build.environment]
