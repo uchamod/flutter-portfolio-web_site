@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portflio/util/colors.dart';
 import 'package:portflio/util/constant.dart';
@@ -12,10 +13,12 @@ class MainSkills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth=MediaQuery.of(context).size.width*1;
+    double screenWidth = MediaQuery.of(context).size.width * 1;
     return Container(
       //width: MediaQuery.of(context).size.width * 0.15,
-      margin: screenWidth > mobileEdgeWidth ?  const EdgeInsets.all(30) : const EdgeInsets.all(5),
+      margin: screenWidth > mobileEdgeWidth
+          ? const EdgeInsets.all(30)
+          : const EdgeInsets.all(5),
       decoration: BoxDecoration(
           color: AppColors.kcCardBlackColor.withOpacity(0.5),
           boxShadow: const [
@@ -47,6 +50,6 @@ class MainSkills extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ).animate().scale(duration: 1000.ms);
   }
 }

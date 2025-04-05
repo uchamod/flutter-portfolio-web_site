@@ -24,7 +24,7 @@ class TextStyleClass {
       fontWeight: FontWeight.w400);
   //discription small
   static const kcLableText = TextStyle(
-      fontSize: 16,
+      fontSize: 13,
       color: AppColors.kcTextWhiteColorShadow,
       fontWeight: FontWeight.w400);
   //cardtitle
